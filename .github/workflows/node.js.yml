@@ -31,9 +31,6 @@ jobs:
     - name: Checkout the repository
       uses: actions/checkout@v4
 
-    - name: List files in build directory  # Listar arquivos gerados no build
-      run: ls -al ./build
-
     - name: Deploy to gh-pages
       uses: peaceiris/actions-gh-pages@v3
       with:
