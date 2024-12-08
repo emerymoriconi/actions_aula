@@ -2,9 +2,8 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: 
+      - main 
 
 jobs:
   build:
@@ -24,7 +23,7 @@ jobs:
     - run: npm test
 
   deploy:
-    name: Deploy to GitHub Pages
+    name: Deploy
     needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
@@ -32,7 +31,7 @@ jobs:
     - name: Checkout the repository
       uses: actions/checkout@v4
 
-    - name: Deploy to gh-pages
+    - name: Deploy 
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}  # Token de autenticação do GitHub Actions
